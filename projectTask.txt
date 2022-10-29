@@ -1,0 +1,10 @@
+To make api : 
+expressjs,
+mongoose,
+nodemon,
+jwt,
+body-parser
+dotenv
+
+infinity spin
+rotaating square
