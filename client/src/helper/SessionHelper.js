@@ -17,5 +17,10 @@ class SessionHelper {
   }
 }
 
-export const { setToken, getToken, setUserDetails, sessionRemove } =
-  new SessionHelper();
+export const {
+  setToken,
+  getToken,
+  setUserDetails,
+  sessionRemove,
+  getUserDetails,
+} = new SessionHelper();

@@ -1,7 +1,7 @@
 import { React, useState } from "react";
-import proImage from "../../assets/images/pro.jpeg";
+import proImage from "../../assets/images/undraw_profile_pic_re_tdyo.svg";
 import { Link } from "react-router-dom";
-import { sessionRemove } from "../../helper/SessionHelper";
+import { sessionRemove, getUserDetails } from "../../helper/SessionHelper";
 
 function MainLayout() {
   const [open, setOpen] = useState(false);
@@ -12,6 +12,10 @@ function MainLayout() {
   const onLogout = () => {
     sessionRemove();
   };
+
+  let firstName = getUserDetails()["firstName"];
+
+  let lastName = getUserDetails()["lastName"];
 
   return (
     <div>
@@ -58,9 +62,9 @@ function MainLayout() {
             <div className="user-dropdown shadow-lg pt-5 px-4 pb-5">
               <div className="user-dropdown-content mt-0">
                 <div className="user-name user-email">
-                  <h6 className="text-xl">Khalid Hasan Sagar</h6>
+                  <h6 className="text-xl">{`${firstName + " " + lastName}`}</h6>
                   <h6 className="text-sm font-medium text-gray-500  dark:text-gray-400">
-                    user@gmail.com
+                    {getUserDetails()["email"]}
                   </h6>
                   <hr />
                   <div className="mt-4">

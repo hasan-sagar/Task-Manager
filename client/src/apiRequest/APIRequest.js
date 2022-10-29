@@ -1,6 +1,7 @@
 import axios from "axios";
 import { ErrorToast, SuccessToast } from "../helper/FormHelper";
 import { getToken, setToken, setUserDetails } from "../helper/SessionHelper";
+import { SetProfile } from "../redux/state-slice/profile-slice";
 import { HideLoader, ShowLoader } from "../redux/state-slice/settings-slice";
 import { SetStatistics } from "../redux/state-slice/statistics-slice";
 import {
@@ -187,6 +188,71 @@ export function UpdateStatusRequest(id, status) {
       store.dispatch(HideLoader());
       if (res.status === 200) {
         SuccessToast("Status Updated");
+        return true;
+      } else {
+        ErrorToast("Something Went Wrong");
+        return false;
+      }
+    })
+    .catch((err) => {
+      ErrorToast("Something Went Wrong");
+      store.dispatch(HideLoader());
+      return false;
+    });
+}
+
+export function GetProfileDetails() {
+  store.dispatch(ShowLoader());
+  let URL = BaseUrl + "/users/profileDetails";
+  axios
+    .get(URL, HeaderToken)
+    .then((res) => {
+      store.dispatch(HideLoader());
+      if (res.status === 200) {
+        store.dispatch(SetProfile(res.data["data"][0]));
+      } else {
+        ErrorToast("Something Went Wrong");
+      }
+    })
+    .catch((err) => {
+      ErrorToast("Something Went Wrong");
+      store.dispatch(HideLoader());
+    });
+}
+
+export function ProfileUpdateRequest(
+  email,
+  firstName,
+  lastName,
+  mobile,
+  password
+) {
+  store.dispatch(ShowLoader());
+
+  let URL = BaseUrl + "/users/profileUpdate";
+
+  let PostBody = {
+    email: email,
+    firstName: firstName,
+    lastName: lastName,
+    mobile: mobile,
+    password: password,
+  };
+  let UserDetails = {
+    email: email,
+    firstName: firstName,
+    lastName: lastName,
+    mobile: mobile,
+    password: password,
+  };
+
+  return axios
+    .post(URL, PostBody, HeaderToken)
+    .then((res) => {
+      store.dispatch(HideLoader());
+      if (res.status === 200) {
+        SuccessToast("Profile Update Success");
+        setUserDetails(UserDetails);
         return true;
       } else {
         ErrorToast("Something Went Wrong");
