@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
+import ClockLoader  from "react-spinners/ClockLoader";
 import { useSelector } from "react-redux";
 
 function LoadingScreen() {
@@ -9,10 +9,10 @@ function LoadingScreen() {
 
   return (
     <div className={loader + " load"}>
-      <ClimbingBoxLoader
+      <ClockLoader 
         color={color}
         loading={true}
-        size={20}
+        size={80}
         aria-label="Loading Spinner"
         data-testid="loader"
       />
