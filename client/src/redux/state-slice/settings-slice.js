@@ -7,7 +7,7 @@ export const settingsSlice = createSlice({
   },
   reducers: {
     ShowLoader(state) {
-      state.loader = "";
+      state.loader = " ";
     },
     HideLoader(state) {
       state.loader = "invisible";
