@@ -41,7 +41,7 @@ export default function Profile() {
       ErrorToast("First Name Required !");
     } else if (IsEmpty(lastName)) {
       ErrorToast("Last Name Required !");
-    } else if (!IsMobile(mobile)) {
+    } else if (!mobile) {
       ErrorToast("Valid Mobile  Required !");
     } else if (IsEmpty(password)) {
       ErrorToast("Password Required !");
