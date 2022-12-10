@@ -15,10 +15,10 @@ class FormHelper {
     return !EmailRegex.test(value);
   }
   ErrorToast(msg) {
-    cogoToast.error(msg, { position: "bottom-center" });
+    cogoToast.error(msg, { position: "bottom-right" });
   }
   SuccessToast(msg) {
-    cogoToast.success(msg, { position: "bottom-center" });
+    cogoToast.success(msg, { position: "bottom-right" });
   }
 }
 

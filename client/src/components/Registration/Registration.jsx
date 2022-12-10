@@ -113,7 +113,7 @@ function Registration() {
                 className="mt-1 text-sm text-indigo-600 font-bold"
                 id="user_avatar_help"
               >
-                Already An User Yet? Login Now.
+                Already An User ? Login Now.
               </Link>
             </div>
 

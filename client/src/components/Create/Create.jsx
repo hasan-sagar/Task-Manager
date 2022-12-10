@@ -61,7 +61,7 @@ function Create() {
               className="text-white bg-teal-400  py-2 px-6  rounded text-lg"
               onClick={onDataSubmit}
             >
-              Button
+              Submit New Task
             </button>
           </div>
         </div>

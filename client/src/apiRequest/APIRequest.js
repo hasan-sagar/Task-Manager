@@ -133,7 +133,10 @@ export function TaskListByStatus(status) {
     } else {
       ErrorToast("Something Went Wrong");
     }
-  });
+  }).catch((err)=>{
+    ErrorToast("Something Went Wrong Or Try To Add New Task")
+    store.dispatch(HideLoader())
+});
 }
 
 export function DeleteTaskRequest(id) {

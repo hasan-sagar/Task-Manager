@@ -6,13 +6,11 @@ import {
   AiOutlineDelete,
 } from "react-icons/ai";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { TaskListByStatus } from "../../apiRequest/APIRequest";
 import DeletAlert from "../../helper/DeleteAlert";
 import { UpdateToDO } from "../../helper/UpdateAlert";
 
 function New() {
-  const navigate = useNavigate();
   useEffect(() => {
     TaskListByStatus("New");
   }, []);
@@ -31,6 +29,7 @@ function New() {
     UpdateToDO(id, status).then((result) => {
       if (result === true) {
         TaskListByStatus("New");
+        window.location.href = "/new";
       }
     });
   };
