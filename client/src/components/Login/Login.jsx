@@ -39,6 +39,7 @@ function Login() {
               <div>
                 <label className="text-gray-700 ">Email Address</label>
                 <input
+                  defaultValue="khsagar0512@gmail.com"
                   ref={(input) => (emailRef = input)}
                   type="email"
                   className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-teal-400
@@ -49,6 +50,7 @@ function Login() {
               <div>
                 <label className="text-gray-700">Password</label>
                 <input
+                  defaultValue="sagar"
                   ref={(input) => (passwordRef = input)}
                   type="password"
                   className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-teal-400
